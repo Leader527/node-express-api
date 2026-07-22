@@ -16,6 +16,12 @@ const ApiError = require('./utils/ApiError');
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Node Express API is running successfully',
+    status: 'OK',
+  });
+});
 if (config.env !== 'test') {
   app.use(morgan.successHandler);
   app.use(morgan.errorHandler);
